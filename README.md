@@ -1,57 +1,85 @@
 # Salary Calculator (grossnetto.com)
 
-Browser-only, privacy-first gross-to-net and total cost of employment (TCO) salary calculator for multiple European markets.
+**Browser-only, privacy-first gross-to-net and total cost of employment (TCO) salary calculator for multiple European markets.**
 
-This tool runs entirely in the browser. No data leaves your device.
+This project provides a transparent, client-side salary calculator designed for clarity, auditability, and long-term maintainability.  
+All calculations run **entirely in your browser** — no backend, no tracking, and no data ever leaves your device.
 
----
-
-## Features
-
-- Gross → net salary calculation
-- Employer total cost (TCO) breakdown
-- Monthly and yearly views
-- Multi-language user interface
-- No backend, no analytics, no tracking
-- Zero build step (static files only)
-
-> Calculations may simplify real tax systems and should be treated as indicative.
+🌐 **Live Tool:** https://www.grossnetto.com
 
 ---
 
-## Supported markets
+## Preview
 
-The calculator supports **10 European markets**, all fully implemented and frozen as of release v1.0.0:
-
-- Germany (DE)
-- Austria (AT)
-- United Kingdom (UK)
-- France (FR)
-- Netherlands (NL)
-- Spain (ES)
-- Poland (PL)
-- Slovenia (SI)
-- Italy (IT)
-- Sweden (SE)
-
-Market coverage and implementation status are governed by PSL v2.5 and MSD v1.8.
+![Salary Calculator Screenshot](https://raw.githubusercontent.com/sbozich/salarycalc/main/screenshot.png)
 
 ---
 
-## Tech stack
+## Key Capabilities
 
-- Vanilla HTML
-- Vanilla CSS
-- Vanilla JavaScript
+- **Gross → Net Salary Calculation**
+- **Employer Total Cost (TCO)** breakdown
+- **Monthly and Annual Views**
+- **Multi-language UI**
+- **Deterministic, explainable formulas**
+- **Offline-capable (static assets only)**
+
+> ⚠️ Tax systems are complex and country-specific.  
+> This calculator provides **indicative results** and should not replace official payroll or tax authority calculations.
+
+---
+
+## Supported Markets
+
+The calculator supports **10 European markets**, all fully implemented and frozen as of **v1.0.0**:
+
+| Code | Country        |
+|-----:|----------------|
+| DE   | Germany        |
+| AT   | Austria        |
+| UK   | United Kingdom |
+| FR   | France         |
+| NL   | Netherlands   |
+| ES   | Spain          |
+| PL   | Poland         |
+| SI   | Slovenia      |
+| IT   | Italy         |
+| SE   | Sweden        |
+
+
+---
+
+## Architecture Principles
+
+- **Client-side only**
+- **Deterministic calculations**
+- **No heuristics, no black boxes**
+- **Rule-driven market logic**
+- **Explicit versioning of tax rules**
+
+This repository contains **production code only** — no prototypes, no experiments.
+
+---
+
+## Tech Stack
+
+- Pure **HTML**
+- Pure **CSS**
+- Pure **JavaScript**
 - No frameworks
 - No build tools
 - No dependencies
 
+Designed to run directly on:
+- GitHub Pages
+- Cloudflare Pages
+- Any static file host
+
 ---
 
-## Running locally
+## Run Locally
 
-You can run the calculator locally using any static file server.
+Any static file server will work.
 
 Example using Python:
 
@@ -59,7 +87,7 @@ Example using Python:
 python3 -m http.server 8000
 ```
 
-Then open in your browser:
+Then open:
 
 ```
 http://localhost:8000
@@ -67,22 +95,24 @@ http://localhost:8000
 
 ---
 
-## Project status
+## Project Status
 
-- Production UI and calculation logic completed
-- First production version finalized: **25 December 2025**
-- Current release: **v1.0.0**
-- Project is in **Maintenance Mode** (bug fixes and annual rules updates only)
+- Core UI and calculation logic completed
+- First production release: **25 December 2025**
+- Current version: **v1.0.0**
+- Status: **Maintenance Mode**
+  - Bug fixes
+  - Annual tax rule updates only
 
----
-
-## Design & architecture
-
-This repository contains **production code only**.
-
+No feature expansion is planned unless mandated by regulatory changes.
 
 ---
 
+## License
 
+Released under the **MIT License** — free for personal and commercial use with attribution.
 
-MIT License
+---
+
+**Accurate inputs. Transparent logic. Zero data leakage.**  
+Salary Calculator is built for users who want to understand their numbers — not just see them.
