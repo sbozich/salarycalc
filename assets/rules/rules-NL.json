@@ -1,0 +1,115 @@
+{
+  "country": "NL",
+  "name": "Netherlands",
+  "currency": "EUR",
+  "default_period": "monthly",
+  "periods_supported": [
+    "monthly",
+    "yearly"
+  ],
+  "years": {
+    "2026": {
+      "year": 2026,
+      "schema_version": 1,
+      "last_updated": "2025-12-15",
+      "income_tax": {
+        "type": "progressive",
+        "brackets": [
+          {
+            "up_to": 38883,
+            "rate": 0.3575
+          },
+          {
+            "up_to": 78426,
+            "rate": 0.3756
+          },
+          {
+            "up_to": null,
+            "rate": 0.495
+          }
+        ],
+        "flat_rate": 0,
+        "formula": {
+          "use_formula": false,
+          "method": null,
+          "parameters": {}
+        },
+        "allowances": {
+          "basic_tax_free": 0,
+          "employment_expense_flat": 0,
+          "other_fixed": 0
+        },
+        "tax_credits": {
+          "general": {
+            "label": "Algemene heffingskorting (non-AOW)",
+            "applies": true,
+            "max": 3115,
+            "phaseout_start": 29736,
+            "phaseout_end": 78426,
+            "phaseout_rate": 0.06398
+          },
+          "labor": {
+            "label": "Arbeidskorting (non-AOW)",
+            "applies": true,
+            "segments": [
+              {
+                "up_to": 11965,
+                "base": 0,
+                "rate": 0.08324,
+                "over": 0
+              },
+              {
+                "up_to": 25845,
+                "base": 996,
+                "rate": 0.31009,
+                "over": 11965
+              },
+              {
+                "up_to": 45592,
+                "base": 5300,
+                "rate": 0.0195,
+                "over": 25845
+              },
+              {
+                "up_to": 132920,
+                "base": 5685,
+                "rate": -0.0651,
+                "over": 45592
+              },
+              {
+                "up_to": null,
+                "base": 0,
+                "rate": 0,
+                "over": 0
+              }
+            ]
+          }
+        }
+      },
+      "social_contributions": {
+        "zvw": {
+          "label": "Zvw employer levy (bijdrage Zvw werkgever)",
+          "applies": true,
+          "employee_rate": 0.0,
+          "employer_rate": 0.061,
+          "ceiling": 79409,
+          "floor": 0,
+          "basis": "gross",
+          "deductible_for_tax": false
+        }
+      },
+      "other_taxes": {},
+      "calculation_flags": {
+        "rounding_mode": "nearest_cent",
+        "fiscal_period_base": "yearly",
+        "currency_decimals": 2
+      },
+      "disclaimers": [
+        "Netherlands model uses Box 1 annual brackets and applies general + labor tax credits from the 2026 provisional assessment parameters (non-AOW).",
+        "Payroll specifics are simplified: no tax codes, no mid-year cumulative PAYE tables, no pension, no student loan, no sectoral/employee insurances (WW/WIA/ZW/Aof), no 30% ruling, no allowances/deductions beyond credits.",
+        "Zvw is modeled as employer levy up to the statutory maximum contribution income."
+      ],
+      "notes": []
+    }
+  }
+}

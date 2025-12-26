@@ -1,0 +1,133 @@
+{
+  "country": "SI",
+  "name": "Slovenia",
+  "currency": "EUR",
+  "default_period": "monthly",
+  "periods_supported": [
+    "monthly",
+    "yearly"
+  ],
+  "years": {
+    "2026": {
+      "year": 2026,
+      "schema_version": 1,
+      "last_updated": "2025-12-16",
+      "income_tax": {
+        "type": "progressive",
+        "brackets": [
+          {
+            "up_to": 9721.43,
+            "rate": 0.16
+          },
+          {
+            "up_to": 28592.44,
+            "rate": 0.26
+          },
+          {
+            "up_to": 57184.88,
+            "rate": 0.33
+          },
+          {
+            "up_to": 82346.23,
+            "rate": 0.39
+          },
+          {
+            "up_to": null,
+            "rate": 0.5
+          }
+        ],
+        "flat_rate": 0,
+        "formula": {
+          "use_formula": false,
+          "method": null,
+          "parameters": {}
+        },
+        "allowances": {
+          "basic_tax_free": 5551.93,
+          "employment_expense_flat": 0,
+          "other_fixed": 0
+        },
+        "tax_credits": {
+          "si_general_allowance_topup": {
+            "label": "SI: approx extra general allowance credit (income<=17,766.18)",
+            "applies": true,
+            "type": "phaseout_linear",
+            "max_amount": 3333.18,
+            "phaseout_start": 0,
+            "phaseout_end": 17766.18,
+            "phaseout_rate": 0.1876144
+          }
+        }
+      },
+      "social_contributions": {
+        "health": {
+          "label": "Health insurance (ZZZS)",
+          "applies": true,
+          "employee_rate": 0.0636,
+          "employer_rate": 0.0656,
+          "ceiling": null,
+          "floor": 0,
+          "basis": "gross",
+          "deductible_for_tax": true
+        },
+        "pension": {
+          "label": "Pension & disability (ZPIZ)",
+          "applies": true,
+          "employee_rate": 0.155,
+          "employer_rate": 0.0885,
+          "ceiling": null,
+          "floor": 0,
+          "basis": "gross",
+          "deductible_for_tax": true
+        },
+        "unemployment": {
+          "label": "Unemployment insurance",
+          "applies": true,
+          "employee_rate": 0.0014,
+          "employer_rate": 0.0006,
+          "ceiling": null,
+          "floor": 0,
+          "basis": "gross",
+          "deductible_for_tax": true
+        },
+        "other": [
+          {
+            "id": "parental",
+            "label": "Parental protection",
+            "applies": true,
+            "employee_rate": 0.001,
+            "employer_rate": 0.001,
+            "ceiling": null,
+            "floor": 0,
+            "basis": "gross",
+            "deductible_for_tax": true
+          },
+          {
+            "id": "injury",
+            "label": "Occupational injury/disease (employer only)",
+            "applies": true,
+            "employee_rate": 0.0,
+            "employer_rate": 0.0053,
+            "ceiling": null,
+            "floor": 0,
+            "basis": "gross",
+            "deductible_for_tax": false
+          }
+        ]
+      },
+      "other_taxes": {},
+      "calculation_flags": {
+        "rounding_mode": "nearest_cent",
+        "fiscal_period_base": "yearly",
+        "currency_decimals": 2
+      },
+      "disclaimers": [
+        "Slovenia: simplified model. Uses 2026 annual income-tax brackets and standard employee/employer contribution rates. General allowance is approximated as a non-refundable tax credit for low incomes (exact allowance is an income-dependent deduction). Does not include dependent/family allowances, special deductions, statutory contribution caps/minimum bases, or withholding nuances."
+      ],
+      "notes": [
+        "Income tax brackets from Lestvica_za_leto_2026 doc: net annual tax base bands 16%/26%/33%/39%/50%. Basic allowance uses fixed 5,551.93; extra low-income allowance approximated via credit: 0.16*(20,832.39 - 1.17259*income) for income<=17,766.18.",
+        "Contribution rates: employee 22.10% total, employer 16.10% total (health, pension, unemployment, parental, injury)."
+      ]
+    }
+  }
+}

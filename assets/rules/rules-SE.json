@@ -1,0 +1,93 @@
+{
+  "country": "SE",
+  "name": "Sweden",
+  "currency": "SEK",
+  "default_period": "monthly",
+  "periods_supported": [
+    "monthly",
+    "yearly"
+  ],
+  "years": {
+    "2026": {
+      "year": 2026,
+      "schema_version": 1,
+      "last_updated": "2025-12-19",
+      "income_tax": {
+        "type": "formula",
+        "brackets": [
+          {
+            "up_to": 660400,
+            "rate": 0.0
+          },
+          {
+            "up_to": null,
+            "rate": 0.2
+          }
+        ],
+        "flat_rate": 0,
+        "formula": {
+          "use_formula": true,
+          "method": "se_job_credit_2026",
+          "parameters": {
+            "municipal_rate": 0.255,
+            "basic_allowance": 25000,
+            "state_threshold": 660400,
+            "state_rate": 0.2,
+            "seg1_start_gross_annual": 336000,
+            "seg1_start_credit": 21600,
+            "seg1_end_gross_annual": 420000,
+            "seg1_end_credit": 21360,
+            "seg2_end_gross_annual": 720000,
+            "seg2_end_credit": 0
+          }
+        },
+        "allowances": {
+          "basic_tax_free": 25000,
+          "employment_expense_flat": 0,
+          "other_fixed": 0
+        },
+        "description": "Sweden 2026: progressive state tax + municipal and job-tax credit via se_job_credit_2026 (Option B approximation)."
+      },
+      "social_contributions": {
+        "employer_social": {
+          "label": "Employer social contributions (aggregated)",
+          "applies": true,
+          "employee_rate": 0,
+          "employer_rate": 0.3142,
+          "ceiling": null,
+          "floor": 0,
+          "basis": "gross",
+          "deductible_for_tax": false
+        }
+      },
+      "other_taxes": {
+        "municipal_average": {
+          "label": "Average municipal + regional tax",
+          "applies": false,
+          "rate": 0.255,
+          "basis": "gross",
+          "cap": null,
+          "incidence": "employee",
+          "description": "Average municipal + regional tax is folded into the income-tax formula for Sweden 2026 (Option B)."
+        }
+      },
+      "calculation_flags": {
+        "rounding_mode": "nearest_cent",
+        "fiscal_period_base": "yearly",
+        "currency_decimals": 2
+      },
+      "disclaimers": [
+        "Sweden: simplified 2026 model using one national-average municipal + regional tax coefficient and a single state tax schedule (0% / 20% above the 660,400 SEK breakpoint).",
+        "Grundavdrag and jobbskatteavdrag are not modeled explicitly; instead, a fixed basic allowance and an effective municipal rate are used to approximate their average effect around typical full-time incomes. Actual payroll outcomes for specific municipalities or age groups can differ.",
+        "Employer social contributions are modeled as a single aggregated 31.42% rate on gross salary for employees under 66. Employee social contributions are not modeled separately; pensions- and insurance-related reductions are outside this approximation.",
+        "This configuration is intended for cross-country comparison and indicative Sweden calculations only, not for exact paycheck planning or tax filing."
+      ],
+      "notes": [
+        "State income tax: 20% on taxable earned income above the 2026 breakpoint of 660,400 SEK for individuals younger than 66 at the start of the tax year (Skatteverket, belopp och procent 2026).",
+        "Municipal + regional tax: 2026 national average total rate reported by SCB is 32.38%. Here we use an effective municipal coefficient of 25.5% applied to gross income so that, together with the fixed allowance, the model better approximates net outcomes around 12k / 25k / 45k SEK monthly salaries.",
+        "Grundavdrag 2026 follows a piecewise schedule by income and age in the official tables. In this Tier-2 model it is compressed into a constant basic allowance of 25,000 SEK for all work incomes and ages, which improves low/mid-income behavior without introducing nonlinear credit rules in the JSON schema.",
+        "No municipality list, church tax, or age-specific rules for seniors/youth are modeled. Results for very low incomes, very high incomes, or non-average municipalities can deviate noticeably from true Swedish payroll calculations."
+      ]
+    }
+  }
+}

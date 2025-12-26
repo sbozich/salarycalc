@@ -1,0 +1,361 @@
+{
+  "country": "DE",
+  "name": "Germany",
+  "currency": "EUR",
+  "default_period": "monthly",
+  "periods_supported": [
+    "monthly",
+    "yearly"
+  ],
+  "years": {
+    "2026": {
+      "year": 2026,
+      "schema_version": 1,
+      "last_updated": "2025-12-13",
+      "income_tax": {
+        "type": "formula",
+        "brackets": [
+          {
+            "up_to": 12348,
+            "rate": 0
+          },
+          {
+            "up_to": 17800,
+            "rate": 0
+          },
+          {
+            "up_to": 69879,
+            "rate": 0
+          },
+          {
+            "up_to": 277826,
+            "rate": 0
+          },
+          {
+            "up_to": null,
+            "rate": 0
+          }
+        ],
+        "flat_rate": 0,
+        "formula": {
+          "use_formula": true,
+          "method": "de_estg_2026",
+          "parameters": {
+            "tariff": {
+              "basic_allowance": 12348,
+              "zone2_start": 17800,
+              "zone3_start": 69879,
+              "zone4_start": 277826,
+              "zone1": {
+                "coeff_y": 914.51,
+                "offset": 1400
+              },
+              "zone2": {
+                "coeff_y": 173.1,
+                "offset": 2397,
+                "constant": 1034.87
+              },
+              "zone3": {
+                "rate": 0.42,
+                "offset": 11135.63
+              },
+              "zone4": {
+                "rate": 0.45,
+                "offset": 19470.38
+              }
+            },
+            "mst5_6": {
+              "w1": 10000,
+              "w2": 30000,
+              "w3": 80000,
+              "min_rate": 0.2084
+            },
+            "solz": {
+              "free_threshold": 20350,
+              "taper_rate": 0.119,
+              "standard_rate": 0.055
+            },
+            "child": {
+              "kfb_per_child": 9756,
+              "kfb_half_per_child": 4878,
+              "efa_single_parent": 4260
+            }
+          }
+        },
+        "allowances": {
+          "basic_tax_free": 0,
+          "employment_expense_flat": 400,
+          "other_fixed": 0,
+          "kfb_full_per_child": 9756,
+          "kfb_half_per_child": 4878,
+          "kfb_sachlich_full": 6828,
+          "kfb_betreuung_full": 2928
+        }
+      },
+      "social_contributions": {
+        "health": {
+          "label": "Health insurance",
+          "applies": true,
+          "employee_rate": 0.0855,
+          "employer_rate": 0.0855,
+          "ceiling": null,
+          "floor": 0,
+          "basis": "gross",
+          "deductible_for_tax": true
+        },
+        "pension": {
+          "label": "Pension insurance",
+          "applies": true,
+          "employee_rate": 0.093,
+          "employer_rate": 0.093,
+          "ceiling": null,
+          "floor": 0,
+          "basis": "gross",
+          "deductible_for_tax": true
+        },
+        "unemployment": {
+          "label": "Unemployment insurance",
+          "applies": true,
+          "employee_rate": 0.013,
+          "employer_rate": 0.013,
+          "ceiling": null,
+          "floor": 0,
+          "basis": "gross",
+          "deductible_for_tax": true
+        },
+        "other": [
+          {
+            "label": "Long-term care insurance",
+            "applies": true,
+            "employee_rate": 0.024,
+            "employer_rate": 0.024,
+            "ceiling": null,
+            "floor": 0,
+            "basis": "gross",
+            "deductible_for_tax": true
+          }
+        ]
+      },
+      "other_taxes": {
+        "solidarity": {
+          "applies": true,
+          "rate": 0.055,
+          "basis": "income_tax",
+          "cap": null,
+          "free_threshold": 20350,
+          "taper_rate": 0.119,
+          "standard_rate": 0.055
+        }
+      },
+      "tax_classes": {
+        "I": {
+          "income_tax": {
+            "type": "formula",
+            "brackets": [],
+            "flat_rate": 0,
+            "formula": {
+              "use_formula": true,
+              "method": "de_estg_2026",
+              "parameters": {
+                "child_behavior": {
+                  "apply_kfb": true,
+                  "apply_half_kfb": true,
+                  "apply_entlastungsbetrag": false,
+                  "entlast_base": null,
+                  "entlast_per_additional_child": null,
+                  "kfb_mode": "half",
+                  "per_child_multiplier": 1
+                }
+              }
+            },
+            "allowances": {
+              "basic_tax_free": 0,
+              "employment_expense_flat": 0,
+              "other_fixed": 0,
+              "kfb_full_per_child": 9756,
+              "kfb_half_per_child": 4878,
+              "kfb_sachlich_full": 6828,
+              "kfb_betreuung_full": 2928
+            }
+          }
+        },
+        "II": {
+          "income_tax": {
+            "type": "formula",
+            "brackets": [],
+            "flat_rate": 0,
+            "formula": {
+              "use_formula": true,
+              "method": "de_estg_2026",
+              "parameters": {
+                "child_behavior": {
+                  "apply_kfb": true,
+                  "apply_half_kfb": true,
+                  "apply_entlastungsbetrag": true,
+                  "entlast_base": 4260,
+                  "entlast_per_additional_child": 240,
+                  "kfb_mode": "half",
+                  "per_child_multiplier": 1
+                }
+              }
+            },
+            "allowances": {
+              "basic_tax_free": 0,
+              "employment_expense_flat": 0,
+              "other_fixed": 0,
+              "kfb_full_per_child": 9756,
+              "kfb_half_per_child": 4878,
+              "kfb_sachlich_full": 6828,
+              "kfb_betreuung_full": 2928,
+              "entlastungsbetrag_base": 4260,
+              "entlastungsbetrag_per_additional_child": 240
+            }
+          },
+          "taxable_income_adjustment": -1200
+        },
+        "III": {
+          "income_tax": {
+            "type": "formula",
+            "brackets": [],
+            "flat_rate": 0,
+            "formula": {
+              "use_formula": true,
+              "method": "de_estg_2026",
+              "parameters": {
+                "child_behavior": {
+                  "apply_kfb": true,
+                  "apply_half_kfb": false,
+                  "apply_entlastungsbetrag": false,
+                  "entlast_base": null,
+                  "entlast_per_additional_child": null,
+                  "kfb_mode": "full",
+                  "per_child_multiplier": 1
+                }
+              }
+            },
+            "allowances": {
+              "basic_tax_free": 0,
+              "employment_expense_flat": 0,
+              "other_fixed": 0,
+              "kfb_full_per_child": 9756,
+              "kfb_half_per_child": 4878,
+              "kfb_sachlich_full": 6828,
+              "kfb_betreuung_full": 2928
+            }
+          }
+        },
+        "IV": {
+          "income_tax": {
+            "type": "formula",
+            "brackets": [],
+            "flat_rate": 0,
+            "formula": {
+              "use_formula": true,
+              "method": "de_estg_2026",
+              "parameters": {
+                "child_behavior": {
+                  "apply_kfb": true,
+                  "apply_half_kfb": true,
+                  "apply_entlastungsbetrag": false,
+                  "entlast_base": null,
+                  "entlast_per_additional_child": null,
+                  "kfb_mode": "half",
+                  "per_child_multiplier": 1
+                }
+              }
+            },
+            "allowances": {
+              "basic_tax_free": 0,
+              "employment_expense_flat": 0,
+              "other_fixed": 0,
+              "kfb_full_per_child": 9756,
+              "kfb_half_per_child": 4878,
+              "kfb_sachlich_full": 6828,
+              "kfb_betreuung_full": 2928
+            }
+          }
+        },
+        "V": {
+          "income_tax": {
+            "type": "formula",
+            "brackets": [],
+            "flat_rate": 0,
+            "formula": {
+              "use_formula": true,
+              "method": "de_estg_2026",
+              "parameters": {
+                "child_behavior": {
+                  "apply_kfb": false,
+                  "apply_half_kfb": false,
+                  "apply_entlastungsbetrag": false,
+                  "entlast_base": null,
+                  "entlast_per_additional_child": null,
+                  "kfb_mode": "none",
+                  "per_child_multiplier": 0
+                }
+              }
+            },
+            "allowances": {
+              "basic_tax_free": 0,
+              "employment_expense_flat": 0,
+              "other_fixed": 0,
+              "kfb_full_per_child": 9756,
+              "kfb_half_per_child": 4878,
+              "kfb_sachlich_full": 6828,
+              "kfb_betreuung_full": 2928
+            }
+          }
+        },
+        "VI": {
+          "income_tax": {
+            "type": "formula",
+            "brackets": [],
+            "flat_rate": 0,
+            "formula": {
+              "use_formula": true,
+              "method": "de_estg_2026",
+              "parameters": {
+                "child_behavior": {
+                  "apply_kfb": false,
+                  "apply_half_kfb": false,
+                  "apply_entlastungsbetrag": false,
+                  "entlast_base": null,
+                  "entlast_per_additional_child": null,
+                  "kfb_mode": "none",
+                  "per_child_multiplier": 0
+                },
+                "mst5_6": {
+                  "w1": 5000,
+                  "w2": 30000,
+                  "w3": 80000,
+                  "min_rate": 0.2164
+                }
+              }
+            },
+            "allowances": {
+              "basic_tax_free": 0,
+              "employment_expense_flat": 0,
+              "other_fixed": 0,
+              "kfb_full_per_child": 9756,
+              "kfb_half_per_child": 4878,
+              "kfb_sachlich_full": 6828,
+              "kfb_betreuung_full": 2928
+            }
+          }
+        }
+      },
+      "calculation_flags": {
+        "rounding_mode": "nearest_cent",
+        "fiscal_period_base": "yearly",
+        "currency_decimals": 2
+      },
+      "disclaimers": [
+        "For Germany 2026, income tax is calculated using the formula method de_estg_2026 and parameters.tariff. The income_tax.brackets array is provided for documentation of zone boundaries only and is not used for exact tax calculations."
+      ],
+      "notes": [
+        "Zone boundaries in income_tax.brackets are derived from tariff.basic_allowance, tariff.zone2_start, tariff.zone3_start, and tariff.zone4_start.",
+        "Numeric PAP values (Kinderfreibetrag, Entlastungsbetrag, and tariff parameters) are stored in income_tax.formula.parameters and income_tax.allowances in line with the PSL data model."
+      ]
+    }
+  }
+}

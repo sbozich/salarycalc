@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Salary Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Privacy-first salary calculator — gross to net and total cost to employer." />
+
+  <link rel="canonical" href="https://grossnetto.com/" />
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png" />
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Salary Calculator" />
+  <meta property="og:description" content="Privacy-first salary calculator — gross to net and total cost to employer." />
+  <meta property="og:image" content="assets/img/og-salary-calculator.png" />
+  <meta property="og:url" content="https://grossnetto.com/" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Salary Calculator" />
+  <meta name="twitter:description" content="Privacy-first salary calculator — gross to net and total cost to employer." />
+  <meta name="twitter:image" content="assets/img/og-salary-calculator.png" />
+
+  <link rel="stylesheet" href="assets/css/salary.css" />
+</head>
+<body class="app-body">
+  <header class="app-header">
+    <div class="app-header-inner">
+      <div class="app-title-block">
+        <h1 class="app-title" data-i18n="app.title">Salary Calculator</h1>
+        <p class="app-tagline" data-i18n="app.tagline">
+          Gross to net and total cost to employer — all in your browser.
+        </p>
+      </div>
+
+      <div class="app-header-controls">
+        <!-- Language selector stub (currently only en_intl wired) -->
+        <label class="app-inline-label">
+          <span data-i18n="input.language.label">Language:</span>
+          <select id="lang-select" class="app-select">
+            <option value="en_intl">EN</option>
+            <option value="de_de">DE</option>
+            <option value="es_es">ES</option>
+            <option value="fr_fr">FR</option>
+            <option value="it_it">IT</option>
+            <option value="pl_pl">PL</option>
+            <option value="si_si">SI</option>
+            <option value="se_se">SE</option>
+          </select>
+        </label>
+
+        <!-- Dark mode toggle -->
+        <button id="theme-toggle" type="button" class="app-button app-button-ghost">
+          <span data-i18n="app.themeToggle">Dark mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <section class="app-panel app-panel-input">
+      <h2 class="panel-title" data-i18n="app.inputs.title">Inputs</h2>
+
+      <form id="salary-form" class="app-form">
+        <div class="form-row">
+          <label for="country-select">
+            <span data-i18n="input.country.label">Country</span>
+          </label>
+          <select id="country-select" class="app-select" required>
+            <option value="DE" data-i18n="country.DE">Germany</option>
+            <option value="ES" data-i18n="country.ES">Spain</option>
+            <option value="UK" data-i18n="country.UK">United Kingdom</option>
+            <option value="FR" data-i18n="country.FR">France</option>
+            <option value="NL" data-i18n="country.NL">Netherlands</option>
+            <option value="PL" data-i18n="country.PL">Poland</option>
+            <option value="AT" data-i18n="country.AT">Austria</option>
+            <option value="SI" data-i18n="country.SI">Slovenia</option>
+            <option value="SE" data-i18n="country.SE">Sweden</option> <!-- added -->
+            <option value="IT" data-i18n="country.IT">Italy</option>
+          </select>
+        </div>
+
+<div class="form-row" id="tax-class-row" hidden>
+  <label for="tax-class-select">
+    <span data-i18n="input.taxClass.label">Tax class (Germany)</span>
+  </label>
+  <select id="tax-class-select" class="app-select">
+    <option value="I" selected>I</option>
+    <option value="II">II</option>
+    <option value="III">III</option>
+    <option value="IV">IV</option>
+    <option value="V">V</option>
+    <option value="VI">VI</option>
+  </select>
+</div>
+
+
+<div class="form-row" id="children-row" hidden>
+  <label for="children-input">
+    <span data-i18n="input.children.label">Children (for income tax)</span>
+  </label>
+  <input
+    id="children-input"
+    type="number"
+    step="1"
+    min="0"
+    class="app-input"
+    inputmode="numeric"
+    value="0"
+  />
+</div>
+
+
+        <div class="form-row">
+          <label for="year-select">
+            <span data-i18n="input.year.label">Year</span>
+          </label>
+          <select id="year-select" class="app-select" required>
+            <!-- For now we only have 2026 rules in JSON skeletons -->
+            <option value="2026">2026</option>
+          </select>
+        </div>
+
+        <div class="form-row" id="region-row" hidden>
+          <label for="region-select">
+            <span data-i18n="input.region.label">Region</span>
+          </label>
+          <select id="region-select" class="app-select">
+            <option value="" disabled selected data-i18n="input.region.placeholder">Select region…</option>
+            <option value="madrid" data-i18n="region.madrid">Madrid</option>
+            <option value="catalonia" data-i18n="region.catalonia">Catalonia</option>
+            <option value="andalusia" data-i18n="region.andalusia">Andalusia</option>
+            <option value="valencia" data-i18n="region.valencia">Valencia</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <span class="form-label" data-i18n="input.period.label">Input period</span>
+          <div class="form-radio-group">
+            <label class="form-radio">
+              <input type="radio" name="period" value="monthly" checked />
+              <span data-i18n="input.period.monthly">Monthly</span>
+            </label>
+            <label class="form-radio">
+              <input type="radio" name="period" value="yearly" />
+              <span data-i18n="input.period.yearly">Yearly</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-row" id="salary-months-row" hidden>
+          <label for="salary-months-select">
+            <span data-i18n="input.salaryMonths.label">Salary months per year</span>
+          </label>
+          <select id="salary-months-select" class="app-select">
+            <option value="14" selected>14</option>
+            <option value="12">12</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="salary-input">
+            <span data-i18n="input.salary.label">Gross salary</span>
+          </label>
+          <input
+            id="salary-input"
+            type="number"
+            step="1"
+            min="0"
+            class="app-input"
+            inputmode="numeric"
+            required
+          />
+        </div>
+
+        <div class="form-row form-row-actions">
+          <button id="calculate-btn" type="submit" class="app-button app-button-primary">
+            <span data-i18n="input.calculate">Calculate</span>
+          </button>
+        </div>
+
+        <div id="error-box" class="app-error" aria-live="polite" hidden></div>
+      </form>
+    </section>
+
+    <section class="app-panel app-panel-output">
+      <h2 class="panel-title" data-i18n="app.outputs.title">Results</h2>
+
+      <!-- Summary -->
+      <section class="output-block">
+        <h3 class="output-title" data-i18n="output.summary.title">Summary</h3>
+        <table class="result-table" id="table-summary">
+          <thead>
+            <tr>
+              <th data-i18n="output.column.label">Label</th>
+              <th data-i18n="output.column.month">Month</th>
+              <th data-i18n="output.column.year">Year</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <!-- Taxes -->
+      <section class="output-block">
+        <h3 class="output-title" data-i18n="output.taxes.title">Taxes</h3>
+        <table class="result-table" id="table-taxes">
+          <thead>
+            <tr>
+              <th data-i18n="output.column.label">Label</th>
+              <th data-i18n="output.column.month">Month</th>
+              <th data-i18n="output.column.year">Year</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <!-- Employee contributions -->
+      <section class="output-block">
+        <h3 class="output-title" data-i18n="output.contrib.employee">Employee contributions</h3>
+        <table class="result-table" id="table-contrib-employee">
+          <thead>
+            <tr>
+              <th data-i18n="output.column.label">Label</th>
+              <th data-i18n="output.column.month">Month</th>
+              <th data-i18n="output.column.year">Year</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot></tfoot>
+        </table>
+      </section>
+
+      <!-- Employer contributions -->
+      <section class="output-block">
+        <h3 class="output-title" data-i18n="output.contrib.employer">Employer contributions</h3>
+        <table class="result-table" id="table-contrib-employer">
+          <thead>
+            <tr>
+              <th data-i18n="output.column.label">Label</th>
+              <th data-i18n="output.column.month">Month</th>
+              <th data-i18n="output.column.year">Year</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot></tfoot>
+        </table>
+      </section>
+
+      <!-- Net & TCO -->
+      <section class="output-block">
+        <h3 class="output-title" data-i18n="output.net.title">Net salary & TCO</h3>
+        <table class="result-table" id="table-net-tco">
+          <thead>
+            <tr>
+              <th data-i18n="output.column.label">Label</th>
+              <th data-i18n="output.column.month">Month</th>
+              <th data-i18n="output.column.year">Year</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </section>
+  </main>
+
+     <div class="bmc-footer">
+  
+  <a
+    href="https://www.buymeacoffee.com/sbozich"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="bmc-footer-button"
+  >
+    ☕ Support this tool
+  </a>
+
+</div>
+
+  <footer class="app-footer">
+    <div class="app-footer-inner">
+      <div class="footer-tools">
+        <span data-i18n="footer.otherTools">Other tools:</span>
+        <a href="https://listcomparator.com" target="_blank" rel="noopener" data-i18n="footer.listComparator">
+          List Comparator
+        </a>
+        <span>·</span>
+        <a href="https://textmetricseo.com" target="_blank" rel="noopener" data-i18n="footer.textMetricSEO">
+          TextMetricSEO
+        </a>
+        <span>·</span>
+        <a href="https://invocreator.com" target="_blank" rel="noopener" data-i18n="footer.invoiceCreator">
+          InvoiceCreator
+        </a>
+      </div>
+
+  
+
+<div class="footer-meta">
+        <span data-i18n="footer.disclaimer">
+          No backend, no tracking — calculations may simplify real tax systems.
+        </span>
+        <span class="footer-version" data-i18n="footer.version">v1.0</span>
+      </div>
+    </div>
+
+  <div class="app-footer-created">
+    Created by Sinisa Bozic · <a href="mailto:modblaises@proton.me">Suggestions and comments</a> are appreciated!
+  </div>
+
+
+  </footer>
+
+
+
+  
+
+<script src="assets/js/rules-loader.js"></script>
+<script src="assets/js/salary-formulas.js"></script>
+<script src="assets/js/salary-engine.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/app.js"></script>
+<!-- <script src="assets/js/dev-sanity.js"></script> -->
+
+
+</body>
+</html>

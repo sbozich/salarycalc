@@ -1,0 +1,178 @@
+{
+  "country": "AT",
+  "name": "Austria",
+  "currency": "EUR",
+  "default_period": "monthly",
+  "periods_supported": [
+    "monthly",
+    "yearly"
+  ],
+  "years": {
+    "2026": {
+      "year": 2026,
+      "schema_version": 1,
+      "last_updated": "2025-12-14",
+      "income_tax": {
+        "type": "progressive",
+        "brackets": [
+          {
+            "up_to": 13539,
+            "rate": 0.0
+          },
+          {
+            "up_to": 21992,
+            "rate": 0.2
+          },
+          {
+            "up_to": 36458,
+            "rate": 0.3
+          },
+          {
+            "up_to": 70365,
+            "rate": 0.4
+          },
+          {
+            "up_to": 104859,
+            "rate": 0.48
+          },
+          {
+            "up_to": 1000000,
+            "rate": 0.5
+          },
+          {
+            "up_to": null,
+            "rate": 0.55
+          }
+        ],
+        "flat_rate": 0,
+        "formula": {
+          "use_formula": false,
+          "method": null,
+          "parameters": {}
+        },
+        "allowances": {
+          "basic_tax_free": 0,
+          "employment_expense_flat": 0,
+          "other_fixed": 0
+        }
+      },
+      "social_contributions": {
+        "health": {
+          "label": "Health insurance",
+          "applies": true,
+          "employee_rate": 0.0387,
+          "employer_rate": 0.0378,
+          "ceiling": 83160,
+          "floor": 0,
+          "basis": "gross",
+          "deductible_for_tax": false
+        },
+        "pension": {
+          "label": "Pension insurance",
+          "applies": true,
+          "employee_rate": 0.1025,
+          "employer_rate": 0.1255,
+          "ceiling": 83160,
+          "floor": 0,
+          "basis": "gross",
+          "deductible_for_tax": true
+        },
+        "unemployment": {
+          "label": "Unemployment insurance",
+          "applies": true,
+          "employee_rate": 0.0295,
+          "employer_rate": 0.0295,
+          "ceiling": 83160,
+          "floor": 0,
+          "basis": "gross",
+          "deductible_for_tax": false,
+          "apply_to_special_payments": false,
+          "low_income_employee_rate_tiers": [
+            {
+              "up_to": 2225.0,
+              "employee_rate": 0.0
+            },
+            {
+              "up_to": 2427.0,
+              "employee_rate": 0.01
+            },
+            {
+              "up_to": 2630.0,
+              "employee_rate": 0.02
+            },
+            {
+              "up_to": null,
+              "employee_rate": 0.0295
+            }
+          ],
+          "low_income_employee_rate_basis": "monthly"
+        },
+        "other": [
+          {
+            "label": "Accident insurance",
+            "applies": true,
+            "employee_rate": 0.0,
+            "employer_rate": 0.011,
+            "ceiling": null,
+            "floor": 0,
+            "basis": "gross",
+            "deductible_for_tax": false
+          }
+        ]
+      },
+      "other_taxes": {
+        "kommunalsteuer": {
+          "applies": true,
+          "rate": 0.03,
+          "basis": "gross",
+          "cap": null,
+          "incidence": "employer"
+        }
+      },
+      "calculation_flags": {
+        "rounding_mode": "nearest_cent",
+        "fiscal_period_base": "yearly",
+        "currency_decimals": 2
+      },
+      "disclaimers": [
+        "Austria calculation includes simplified 13th/14th salary handling (Jahressechstel model, preferential tax schedule).",
+        "Low-income reductions are applied only to employee unemployment insurance (AV); other SV low-income reductions are not modeled.",
+        "Provincial employer surcharges (DZ) are omitted."
+      ],
+      "notes": [],
+      "special_payments": {
+        "enabled": true,
+        "default_salary_months": 14,
+        "regular_months": 12,
+        "special_months": 2,
+        "income_tax": {
+          "type": "progressive",
+          "brackets": [
+            {
+              "up_to": 24380,
+              "rate": 0.06
+            },
+            {
+              "up_to": 49380,
+              "rate": 0.27
+            },
+            {
+              "up_to": 82713,
+              "rate": 0.3575
+            },
+            {
+              "up_to": null,
+              "rate": 0.55
+            }
+          ]
+        },
+        "allowance_annual": 620,
+        "annual_sixth_mode": "regular_gross_over_6",
+        "social_contributions": {
+          "special_ceiling_annual": 13860,
+          "regular_ceiling_annual": 83160
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "country": "FR",
+  "name": "France",
+  "currency": "EUR",
+  "default_period": "monthly",
+  "periods_supported": [
+    "monthly",
+    "yearly"
+  ],
+  "years": {
+    "2026": {
+      "year": 2026,
+      "schema_version": 1,
+      "last_updated": "2025-12-16",
+      "income_tax": {
+        "type": "progressive",
+        "brackets": [
+          {
+            "up_to": 11294,
+            "rate": 0.0
+          },
+          {
+            "up_to": 28797,
+            "rate": 0.11
+          },
+          {
+            "up_to": 82341,
+            "rate": 0.3
+          },
+          {
+            "up_to": 177106,
+            "rate": 0.41
+          },
+          {
+            "up_to": null,
+            "rate": 0.45
+          }
+        ],
+        "flat_rate": 0,
+        "formula": {
+          "use_formula": false,
+          "method": null,
+          "parameters": {}
+        },
+        "allowances": {
+          "basic_tax_free": 0,
+          "employment_expense_flat": 0,
+          "other_fixed": 0
+        },
+        "professional_deduction": {
+          "enabled": true,
+          "rate": 0.1,
+          "min": 495,
+          "max": 14171
+        }
+      },
+      "social_contributions": {
+        "health": {
+          "label": "Employee social contrib (uncapped)",
+          "applies": true,
+          "employee_rate": 0.097,
+          "employer_rate": 0.0,
+          "ceiling": null,
+          "floor": 0,
+          "basis": "gross",
+          "deductible_for_tax": true
+        },
+        "pension": {
+          "label": "Employee social contrib (capped)",
+          "applies": true,
+          "employee_rate": 0.069,
+          "employer_rate": 0.0,
+          "ceiling": 43992,
+          "floor": 0,
+          "basis": "gross",
+          "deductible_for_tax": true
+        },
+        "unemployment": {
+          "label": "Unemployment insurance",
+          "applies": false,
+          "employee_rate": 0,
+          "employer_rate": 0,
+          "ceiling": null,
+          "floor": 0,
+          "basis": "gross",
+          "deductible_for_tax": false
+        },
+        "other": []
+      },
+      "other_taxes": {},
+      "calculation_flags": {
+        "rounding_mode": "nearest_cent",
+        "fiscal_period_base": "yearly",
+        "currency_decimals": 2
+      },
+      "disclaimers": [
+        "France: simplified employee social contributions and income tax (single taxpayer, 1 part). Does not include family quotient, CSG/CRDS, employer charges, withholding, or specific deductions/credits."
+      ],
+      "notes": [
+        "Phase D FR: PASS=43,992; employee rates: 6.9% capped + 9.7% uncapped; pro deduction 10% of net-before-tax, min 495, max 14,171."
+      ]
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "country": "UK",
+  "name": "United Kingdom",
+  "currency": "GBP",
+  "default_period": "monthly",
+  "periods_supported": ["monthly", "yearly"],
+  "years": {
+    "2026": {
+      "year": 2026,
+      "schema_version": 1,
+      "last_updated": "2025-12-15",
+      "income_tax": {
+        "type": "progressive",
+        "brackets": [
+          { "up_to": 12570,  "rate": 0.0 },
+          { "up_to": 50270,  "rate": 0.20 },
+          { "up_to": 125140, "rate": 0.40 },
+          { "up_to": null,   "rate": 0.45 }
+        ],
+        "flat_rate": 0,
+        "formula": { "use_formula": false, "method": null, "parameters": {} },
+        "allowances": {
+          "personal_allowance": 12570
+        }
+      },
+      "social_contributions": {
+        "national_insurance": {
+          "label": "National Insurance (Class 1)",
+          "applies": true,
+          "employee": {
+            "brackets": [
+              { "up_to": 12570,  "rate": 0.0 },
+              { "up_to": 50270,  "rate": 0.08 },
+              { "up_to": null,   "rate": 0.02 }
+            ]
+          },
+          "employer": {
+            "threshold": 9100,
+            "rate": 0.138
+          },
+          "basis": "gross",
+          "deductible_for_tax": false
+        }
+      },
+      "other_taxes": {},
+      "calculation_flags": {
+        "rounding_mode": "nearest_cent",
+        "fiscal_period_base": "yearly",
+        "currency_decimals": 2
+      },
+      "disclaimers": [
+        "England/Wales PAYE income tax and Class 1 National Insurance only.",
+        "Student loans, pensions, and Scottish income-tax bands are not included."
+      ],
+      "notes": []
+    }
+  }
+}

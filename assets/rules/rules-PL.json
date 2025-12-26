@@ -1,0 +1,127 @@
+{
+  "country": "PL",
+  "name": "Poland",
+  "currency": "PLN",
+  "default_period": "monthly",
+  "periods_supported": [
+    "monthly",
+    "yearly"
+  ],
+  "years": {
+    "2026": {
+      "year": 2026,
+      "schema_version": 1,
+      "last_updated": "2025-12-17",
+      "income_tax": {
+        "type": "progressive",
+        "brackets": [
+          {
+            "up_to": 120000,
+            "rate": 0.12
+          },
+          {
+            "up_to": null,
+            "rate": 0.32
+          }
+        ],
+        "flat_rate": 0,
+        "formula": {
+          "use_formula": false,
+          "method": null,
+          "parameters": {}
+        },
+        "allowances": {
+          "basic_tax_free": 30000,
+          "employment_expense_flat": 3000,
+          "other_fixed": 0
+        }
+      },
+      "social_contributions": {
+        "health": {
+          "label": "Health insurance (zdrowotne)",
+          "applies": true,
+          "employee_rate": 0.09,
+          "employer_rate": 0.0,
+          "ceiling": null,
+          "floor": 0,
+          "basis": "gross",
+          "deductible_for_tax": false
+        },
+        "pension": {
+          "label": "Old-age pension insurance (emerytalne)",
+          "applies": true,
+          "employee_rate": 0.0976,
+          "employer_rate": 0.0976,
+          "ceiling": null,
+          "floor": 0,
+          "basis": "gross",
+          "deductible_for_tax": true
+        },
+        "unemployment": {
+          "label": "Disability & survivors insurance (rentowe)",
+          "applies": true,
+          "employee_rate": 0.015,
+          "employer_rate": 0.065,
+          "ceiling": null,
+          "floor": 0,
+          "basis": "gross",
+          "deductible_for_tax": true
+        },
+        "other": [
+          {
+            "label": "Sickness insurance (chorobowe)",
+            "applies": true,
+            "employee_rate": 0.0245,
+            "employer_rate": 0.0,
+            "ceiling": null,
+            "floor": 0,
+            "basis": "gross",
+            "deductible_for_tax": true
+          },
+          {
+            "label": "Accident insurance (wypadkowe) — default 1.67%",
+            "applies": true,
+            "employee_rate": 0.0,
+            "employer_rate": 0.0167,
+            "ceiling": null,
+            "floor": 0,
+            "basis": "gross",
+            "deductible_for_tax": false
+          },
+          {
+            "label": "Labour Fund (FP)",
+            "applies": true,
+            "employee_rate": 0.0,
+            "employer_rate": 0.0245,
+            "ceiling": null,
+            "floor": 0,
+            "basis": "gross",
+            "deductible_for_tax": false
+          },
+          {
+            "label": "Guaranteed Employee Benefits Fund (FGŚP)",
+            "applies": true,
+            "employee_rate": 0.0,
+            "employer_rate": 0.001,
+            "ceiling": null,
+            "floor": 0,
+            "basis": "gross",
+            "deductible_for_tax": false
+          }
+        ]
+      },
+      "other_taxes": {},
+      "calculation_flags": {
+        "rounding_mode": "nearest_cent",
+        "fiscal_period_base": "yearly",
+        "currency_decimals": 2
+      },
+      "disclaimers": [
+        "PL baseline (2026): simplified employment-contract model. Uses 12% / 32% PIT bands with a 30,000 PLN tax-free amount and a flat 3,000 PLN annual employment cost allowance (KUP).",
+        "ZUS contributions modeled as flat rates on gross. Accident insurance is variable by risk class; this ruleset uses 1.67% as a default placeholder. No PPK; no contribution bases/caps; omits several conditional exemptions.",
+        "Health contribution (9%) is modeled as employee-only and non-deductible for PIT."
+      ],
+      "notes": []
+    }
+  }
+}

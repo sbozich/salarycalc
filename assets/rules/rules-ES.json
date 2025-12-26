@@ -1,0 +1,425 @@
+{
+  "country": "ES",
+  "name": "Spain",
+  "currency": "EUR",
+  "default_period": "monthly",
+  "periods_supported": [
+    "monthly",
+    "yearly"
+  ],
+  "years": {
+    "2026": {
+      "year": 2026,
+      "schema_version": 1,
+      "last_updated": "2025-12-17",
+      "income_tax": {
+        "note": "ES uses region-specific income tax; see regions.*.income_tax",
+        "progressive": true,
+        "brackets": []
+      },
+      "regions": {
+        "madrid": {
+          "name": "Comunidad de Madrid",
+          "income_tax": {
+            "national": {
+              "progressive": true,
+              "brackets": [
+                {
+                  "up_to": 12450,
+                  "rate": 0.095
+                },
+                {
+                  "up_to": 20200,
+                  "rate": 0.12
+                },
+                {
+                  "up_to": 35200,
+                  "rate": 0.15
+                },
+                {
+                  "up_to": 60000,
+                  "rate": 0.185
+                },
+                {
+                  "up_to": 300000,
+                  "rate": 0.225
+                },
+                {
+                  "up_to": null,
+                  "rate": 0.245
+                }
+              ]
+            },
+            "regional": {
+              "progressive": true,
+              "brackets": [
+                {
+                  "up_to": 12450,
+                  "rate": 0.085
+                },
+                {
+                  "up_to": 13362,
+                  "rate": 0.085
+                },
+                {
+                  "up_to": 19004,
+                  "rate": 0.107
+                },
+                {
+                  "up_to": 20200,
+                  "rate": 0.128
+                },
+                {
+                  "up_to": 35200,
+                  "rate": 0.128
+                },
+                {
+                  "up_to": 35425,
+                  "rate": 0.128
+                },
+                {
+                  "up_to": 57320,
+                  "rate": 0.174
+                },
+                {
+                  "up_to": 60000,
+                  "rate": 0.205
+                },
+                {
+                  "up_to": 300000,
+                  "rate": 0.205
+                },
+                {
+                  "up_to": null,
+                  "rate": 0.205
+                }
+              ]
+            }
+          }
+        },
+        "catalonia": {
+          "name": "Cataluña",
+          "income_tax": {
+            "national": {
+              "progressive": true,
+              "brackets": [
+                {
+                  "up_to": 12450,
+                  "rate": 0.095
+                },
+                {
+                  "up_to": 20200,
+                  "rate": 0.12
+                },
+                {
+                  "up_to": 35200,
+                  "rate": 0.15
+                },
+                {
+                  "up_to": 60000,
+                  "rate": 0.185
+                },
+                {
+                  "up_to": 300000,
+                  "rate": 0.225
+                },
+                {
+                  "up_to": null,
+                  "rate": 0.245
+                }
+              ]
+            },
+            "regional": {
+              "progressive": true,
+              "brackets": [
+                {
+                  "up_to": 12450,
+                  "rate": 0.105
+                },
+                {
+                  "up_to": 17707,
+                  "rate": 0.12
+                },
+                {
+                  "up_to": 20200,
+                  "rate": 0.14
+                },
+                {
+                  "up_to": 21000,
+                  "rate": 0.14
+                },
+                {
+                  "up_to": 33007,
+                  "rate": 0.15
+                },
+                {
+                  "up_to": 35200,
+                  "rate": 0.188
+                },
+                {
+                  "up_to": 53407,
+                  "rate": 0.188
+                },
+                {
+                  "up_to": 60000,
+                  "rate": 0.215
+                },
+                {
+                  "up_to": 90000,
+                  "rate": 0.215
+                },
+                {
+                  "up_to": 120000,
+                  "rate": 0.235
+                },
+                {
+                  "up_to": 175000,
+                  "rate": 0.245
+                },
+                {
+                  "up_to": 300000,
+                  "rate": 0.255
+                },
+                {
+                  "up_to": null,
+                  "rate": 0.255
+                }
+              ]
+            }
+          }
+        },
+        "andalusia": {
+          "name": "Andalucía",
+          "income_tax": {
+            "national": {
+              "progressive": true,
+              "brackets": [
+                {
+                  "up_to": 12450,
+                  "rate": 0.095
+                },
+                {
+                  "up_to": 20200,
+                  "rate": 0.12
+                },
+                {
+                  "up_to": 35200,
+                  "rate": 0.15
+                },
+                {
+                  "up_to": 60000,
+                  "rate": 0.185
+                },
+                {
+                  "up_to": 300000,
+                  "rate": 0.225
+                },
+                {
+                  "up_to": null,
+                  "rate": 0.245
+                }
+              ]
+            },
+            "regional": {
+              "progressive": true,
+              "brackets": [
+                {
+                  "up_to": 12450,
+                  "rate": 0.095
+                },
+                {
+                  "up_to": 13000,
+                  "rate": 0.095
+                },
+                {
+                  "up_to": 20200,
+                  "rate": 0.12
+                },
+                {
+                  "up_to": 21100,
+                  "rate": 0.12
+                },
+                {
+                  "up_to": 35200,
+                  "rate": 0.15
+                },
+                {
+                  "up_to": 60000,
+                  "rate": 0.185
+                },
+                {
+                  "up_to": 120000,
+                  "rate": 0.225
+                },
+                {
+                  "up_to": 300000,
+                  "rate": 0.225
+                },
+                {
+                  "up_to": null,
+                  "rate": 0.225
+                }
+              ]
+            }
+          }
+        },
+        "valencia": {
+          "name": "Comunidad Valenciana",
+          "income_tax": {
+            "national": {
+              "progressive": true,
+              "brackets": [
+                {
+                  "up_to": 12450,
+                  "rate": 0.095
+                },
+                {
+                  "up_to": 20200,
+                  "rate": 0.12
+                },
+                {
+                  "up_to": 35200,
+                  "rate": 0.15
+                },
+                {
+                  "up_to": 60000,
+                  "rate": 0.185
+                },
+                {
+                  "up_to": 300000,
+                  "rate": 0.225
+                },
+                {
+                  "up_to": null,
+                  "rate": 0.245
+                }
+              ]
+            },
+            "regional": {
+              "progressive": true,
+              "brackets": [
+                {
+                  "up_to": 12000,
+                  "rate": 0.09
+                },
+                {
+                  "up_to": 12450,
+                  "rate": 0.12
+                },
+                {
+                  "up_to": 20200,
+                  "rate": 0.12
+                },
+                {
+                  "up_to": 22000,
+                  "rate": 0.12
+                },
+                {
+                  "up_to": 32000,
+                  "rate": 0.15
+                },
+                {
+                  "up_to": 35200,
+                  "rate": 0.175
+                },
+                {
+                  "up_to": 42000,
+                  "rate": 0.175
+                },
+                {
+                  "up_to": 52000,
+                  "rate": 0.2
+                },
+                {
+                  "up_to": 60000,
+                  "rate": 0.225
+                },
+                {
+                  "up_to": 62000,
+                  "rate": 0.225
+                },
+                {
+                  "up_to": 65000,
+                  "rate": 0.225
+                },
+                {
+                  "up_to": 72000,
+                  "rate": 0.25
+                },
+                {
+                  "up_to": 100000,
+                  "rate": 0.265
+                },
+                {
+                  "up_to": 150000,
+                  "rate": 0.275
+                },
+                {
+                  "up_to": 200000,
+                  "rate": 0.285
+                },
+                {
+                  "up_to": 300000,
+                  "rate": 0.295
+                },
+                {
+                  "up_to": null,
+                  "rate": 0.295
+                }
+              ]
+            }
+          }
+        }
+      },
+      "social_contributions": {
+        "health": {
+          "label": "Social Security (general regime)",
+          "applies": true,
+          "employee_rate": 0.0648,
+          "employer_rate": 0.3057,
+          "ceiling": 58914.0,
+          "floor": 0,
+          "basis": "gross",
+          "deductible_for_tax": true,
+          "notes": [
+            "Simplified General Regime totals; excludes occupational accident rate and minimum contribution base."
+          ]
+        },
+        "pension": {},
+        "unemployment": {},
+        "other": []
+      },
+      "other_taxes": {
+        "solidarity": {
+          "applies": false,
+          "rate": 0,
+          "basis": "income_tax",
+          "cap": null
+        }
+      },
+      "calculation_flags": {
+        "rounding_mode": "nearest_cent",
+        "fiscal_period_base": "yearly",
+        "currency_decimals": 2,
+        "supports_regions": true,
+        "region_required": true,
+        "region_default": "madrid",
+        "region_model": "state_plus_autonomous",
+        "precision_level": "Phase D: bracket-accurate; allowances simplified; SSC simplified"
+      },
+      "disclaimers": [
+        "Spain income tax (IRPF) is modeled as national (state) + regional (autonomous community) progressive scales on taxable base; deductions/credits beyond the modeled allowances are not included.",
+        "Spanish Social Security is modeled as a simplified percentage with a single annual ceiling; contract-specific unemployment rates, accident rates, and minimum bases are excluded."
+      ],
+      "notes": [],
+      "default_region": "madrid",
+      "allowances": {
+        "basic_tax_free_annual": 5550,
+        "employment_expense_flat_annual": 2000,
+        "notes": [
+          "Models general mínimo personal (under 65) and general 'other expenses' deduction for employment income."
+        ]
+      }
+    }
+  }
+}
