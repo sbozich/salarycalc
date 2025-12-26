@@ -321,6 +321,53 @@ body.dark-theme .result-table thead {
   font-weight: 600;
 }
 
+/* Mobile table fit: remove the 3rd column (Year) to avoid horizontal scrolling */
+@media (max-width: 560px) {
+  .result-table {
+    width: 100%;
+    table-layout: fixed; /* prevents a long label/value from expanding the table */
+    min-width: 0; /* IMPORTANT: overrides min-width:520px so table can shrink */
+  }
+
+  .result-table th,
+  .result-table td {
+    padding: 8px 8px;
+    font-size: 14px;
+  }
+
+  /* Let labels wrap instead of forcing a wider table */
+  .result-table th:first-child,
+  .result-table td:first-child {
+    white-space: normal;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  /* Keep numeric column readable and aligned */
+.result-table th:nth-child(2),
+.result-table td:nth-child(2) {
+  text-align: right;
+  white-space: nowrap;
+  min-width: 90px;
+  max-width: 130px;
+  }
+
+  /* Hide Year column on small screens */
+  .result-table th:nth-child(3),
+  .result-table td:nth-child(3) {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .result-table th:first-child,
+  .result-table td:first-child {
+    max-width: 0; /* enables wrapping under fixed layout in some browsers */
+    
+  }
+}
+
+
 /* Footer */
 
 .app-footer {
@@ -378,6 +425,19 @@ body.dark-theme .result-table thead {
 
 .bmc-footer-button:hover {
   background-color: #f2cf00;
+}
+
+/* Mobile: de-emphasize support button so it does not compete with primary CTA */
+@media (max-width: 560px) {
+  .bmc-footer-button {
+    padding: 6px 14px;
+    font-size: 13px;
+    opacity: 0.80;
+  }
+
+  .bmc-footer-button:hover {
+    opacity: 1;
+  }
 }
 
 /* Remove number input spinners (Chrome, Edge, Safari) */
